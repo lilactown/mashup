@@ -1,0 +1,30 @@
+<h1>Reddit Mashup</h1>
+{{#unless noCache}}
+<h3>
+	<form action="/">
+		<select name="sub1">
+			{{#each sublist}}
+			<option value="{{this.name}}" {{this.sub1}}>/r/{{this.name}}</option>
+			{{/each}}
+		</select>
+		 vs 
+		<select name="sub2">
+			{{#each sublist}}
+			<option value="{{this.name}}" {{this.sub2}}>/r/{{this.name}}</option>
+			{{/each}}
+		</select>
+		<button type="submit">Mash</button>
+	</form>
+</h3>
+<p>{{{headline}}}</p>
+{{else}}
+<p>It looks like data for that subreddit hasn't been loaded yet. Want to help us out?</p>
+<form action="/getSub" method="POST">
+<input type="text" name="sub" />
+<button type="submit">Load Reddit Data</button>
+</form>
+{{/unless}}
+<p>
+	<a href="javascript:window.location.reload()">Reload</a>
+	<a href="https://github.com/Lokeh/markov">Source</a>
+</p>
