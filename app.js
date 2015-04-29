@@ -7,14 +7,10 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 
 var routes = require('./routes/index');
-// var test = require('./routes/test');
-// var getSub = require('./routes/getSub');
-// var saveCache = require('./routes/saveCache');
 
 var app = express();
 
 // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
@@ -27,9 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-// app.use('/dump', test);
-// app.use('/getSub', getSub);
-// app.use('/saveCache', saveCache);
 
 
 // catch 404 and forward to error handler
