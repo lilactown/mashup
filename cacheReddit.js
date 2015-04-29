@@ -24,13 +24,15 @@ var cacheReddit = function () {
 			var getSub = function (body) {
 				if (count) {
 					console.log(count);
-					var after = body.data.after;
-					body.data.children.forEach(function (post) {
-						titles.push(post.data.title);
-					});
+					if (body.data) {
+						var after = body.data.after;
+						body.data.children.forEach(function (post) {
+							titles.push(post.data.title);
+						});
 
-					count--;
-					reddHead.get(sub, { limit: 100, after: after }, getSub);
+						count--;
+						reddHead.get(sub, { limit: 100, after: after }, getSub);
+					}
 				}
 				else {
 					callback (titles);
