@@ -18,7 +18,10 @@
 </h3>
 <p>{{{headline}}}</p>
 {{else}}
-<p>It looks like data for that subreddit hasn't been loaded yet. Want to help us out?</p>
+<p>It looks like data for that subreddit hasn't been loaded yet. Want to help us out? <br>
+Type the name of the subreddit without a preceeding /r/ <br> 
+Example: "dogs" will pull data from reddit.com/r/dogs <br> 
+Wrong: /r/dogs</p>
 <form action="/getSub" method="POST">
 <input type="text" name="sub" />
 <button type="submit">Load Reddit Data</button>
